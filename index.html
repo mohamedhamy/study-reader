@@ -4,22 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="theme-color" content="#152d42">
+  <meta name="theme-color" content="#000000">
   <title>Private Lesson Reader</title>
   <style>
-    :root { color-scheme: light; font-family: system-ui, -apple-system, Segoe UI, sans-serif; color: #172e43; background: #f6f9fc; }
+    :root { color-scheme: dark; font-family: system-ui, -apple-system, Segoe UI, sans-serif; color: #f6fafc; background: #000; }
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 24px; }
-    main { width: min(100%, 440px); padding: clamp(26px, 6vw, 42px); border: 1px solid #d4e1e9; border-radius: 18px; background: white; box-shadow: 0 22px 60px #17334a14; }
-    .mark { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: #17334a; color: #54d4ca; font-size: 26px; }
+    main { width: min(100%, 440px); padding: clamp(26px, 6vw, 42px); border: 1px solid #60727e; border-radius: 18px; background: #101820; }
+    .mark { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: #18343a; color: #84e7dd; font-size: 26px; }
     h1 { margin: 24px 0 10px; font-size: clamp(26px, 6vw, 32px); line-height: 1.15; }
-    p { font-size: 16px; line-height: 1.55; color: #4b6273; }
-    label { display: block; margin: 26px 0 8px; font-weight: 700; font-size: 15px; }
-    input { width: 100%; padding: 14px 15px; border: 1px solid #9cb4c4; border-radius: 9px; font: inherit; font-size: 17px; }
-    input:focus { outline: 3px solid #8bd9d3; outline-offset: 2px; }
-    button { width: 100%; margin-top: 14px; padding: 14px 16px; border: 0; border-radius: 9px; background: #086e70; color: white; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; }
+    p { font-size: 18px; line-height: 1.65; color: #d1dde4; }
+    label { display: block; margin: 26px 0 8px; font-weight: 700; font-size: 17px; }
+    input { width: 100%; padding: 14px 15px; border: 1px solid #a0b7c3; border-radius: 9px; background: #050809; color: #f6fafc; font: inherit; font-size: 19px; }
+    input:focus { outline: 3px solid #ffcc70; outline-offset: 2px; }
+    button { width: 100%; margin-top: 14px; padding: 14px 16px; border: 0; border-radius: 9px; background: #84e7dd; color: #001517; font: inherit; font-size: 18px; font-weight: 750; cursor: pointer; }
+    button:hover, button:focus-visible { background: #b6fff5; }
     button:disabled { cursor: wait; opacity: .7; }
-    #status { min-height: 24px; margin: 14px 0 0; font-size: 14px; }
+    #status { min-height: 24px; margin: 14px 0 0; font-size: 16px; }
   </style>
 </head>
 <body>

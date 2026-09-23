@@ -36,8 +36,10 @@ self.addEventListener('fetch', event => {
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
     try {
-      const response = await fetch(request);
-      if (response.ok) event.waitUntil(cache.put(cacheKey, response.clone()));
+      const response = await fetch(request, { cache: 'no-store' });
+      if (response.ok) {
+        try { await cache.put(cacheKey, response.clone()); } catch (_) { /* Reading online still works if storage is full. */ }
+      }
       return response;
     } catch (error) {
       const saved = await cache.match(cacheKey);

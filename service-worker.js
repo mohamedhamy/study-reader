@@ -1,4 +1,4 @@
-const CACHE_NAME = 'study-reader-encrypted-v1';
+const CACHE_NAME = 'study-reader-encrypted-v2';
 const CACHE_PREFIX = 'study-reader-encrypted-';
 const SCOPE = '/study-reader/';
 const SHELL = [
@@ -10,6 +10,14 @@ const SHELL = [
   `${SCOPE}homework/payload.json`,
   `${SCOPE}transcripts/`,
   `${SCOPE}transcripts/payload.json`,
+  `${SCOPE}communication/`,
+  `${SCOPE}communication/payload.json`,
+  `${SCOPE}design/`,
+  `${SCOPE}design/payload.json`,
+  `${SCOPE}field-study/`,
+  `${SCOPE}field-study/payload.json`,
+  `${SCOPE}model-making/`,
+  `${SCOPE}model-making/payload.json`,
   `${SCOPE}app.webmanifest`,
   `${SCOPE}icons/icon-192.png`,
   `${SCOPE}icons/icon-512.png`,

@@ -1,8 +1,8 @@
 {
   "id": "/study-reader/",
-  "name": "Structural Studies Reader",
+  "name": "Architectural Studies Reader",
   "short_name": "Study Reader",
-  "description": "Private structural lessons, diagrams, homework and lecture notes.",
+  "description": "Private dashboard for five architectural courses, lessons, homework, notices and lecture notes.",
   "start_url": "/study-reader/",
   "scope": "/study-reader/",
   "display": "standalone",

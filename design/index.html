@@ -34,7 +34,7 @@
   <main>
     <div class="mark" aria-hidden="true">▥</div>
     <h1>Private lesson reader</h1>
-    <p>Enter your access code to open your lessons and practice questions.</p>
+    <p>Enter your access code once. Subject pages will stay open during this app session.</p>
     <form id="unlock-form">
       <label for="code">Access code</label>
       <input id="code" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required>
@@ -49,6 +49,7 @@
     const button = document.getElementById('unlock-button');
     const status = document.getElementById('status');
     const decode = value => Uint8Array.from(atob(value), character => character.charCodeAt(0));
+    const sessionKey = 'study-reader-session-code-v1';
 
     if (/iPhone|iPad|iPod/i.test(navigator.userAgent) && !navigator.standalone && !matchMedia('(display-mode: standalone)').matches) {
       document.getElementById('install-tip').hidden = false;
@@ -57,37 +58,51 @@
       navigator.serviceWorker.register('/study-reader/service-worker.js', { scope: '/study-reader/' }).catch(() => {});
     }
 
-    form.addEventListener('submit', async event => {
-      event.preventDefault();
+    async function openLessons(accessCode, automatic = false) {
       button.disabled = true;
-      status.textContent = 'Opening lessons…';
+      status.textContent = automatic ? 'Opening your saved session…' : 'Opening lessons…';
       try {
         const response = await fetch('./payload.json', { cache: 'no-store' });
         if (!response.ok) throw new Error('download');
         const sealed = await response.json();
-        const passwordKey = await crypto.subtle.importKey('raw', new TextEncoder().encode(field.value.trim()), 'PBKDF2', false, ['deriveKey']);
+        const passwordKey = await crypto.subtle.importKey('raw', new TextEncoder().encode(accessCode), 'PBKDF2', false, ['deriveKey']);
         const key = await crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: decode(sealed.salt), iterations: sealed.iterations }, passwordKey, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
         const plaintext = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: decode(sealed.iv) }, key, decode(sealed.ciphertext));
         const lesson = JSON.parse(new TextDecoder().decode(plaintext));
         const assets = {
           'styles.css': URL.createObjectURL(new Blob([lesson.css], { type: 'text/css' })),
-          'app.js': URL.createObjectURL(new Blob([lesson.js], { type: 'text/javascript' })),
-          'structural-studies-guide.pdf': URL.createObjectURL(new Blob([decode(lesson.pdf)], { type: 'application/pdf' }))
+          'app.js': URL.createObjectURL(new Blob([lesson.js], { type: 'text/javascript' }))
         };
         let page = lesson.html;
         for (const [original, replacement] of Object.entries(assets)) {
           if (!page.includes(original)) throw new Error('asset');
           page = page.replaceAll(original, replacement);
         }
+        if (page.includes('structural-studies-guide.pdf')) {
+          if (!lesson.pdf) throw new Error('asset');
+          page = page.replaceAll('structural-studies-guide.pdf', URL.createObjectURL(new Blob([decode(lesson.pdf)], { type: 'application/pdf' })));
+        }
+        try { sessionStorage.setItem(sessionKey, accessCode); } catch (_) { /* Storage can be unavailable in private browsing. */ }
         document.open();
         document.write(page);
         document.close();
       } catch (error) {
-        status.textContent = error.message === 'download' ? 'Could not load the lessons. Check your connection and try again.' : 'That access code did not open the lessons. Check it and try again.';
+        if (automatic && error.message !== 'download') {
+          try { sessionStorage.removeItem(sessionKey); } catch (_) {}
+        }
+        status.textContent = error.message === 'download' ? 'Could not load the lessons. Check your connection and try again.' : automatic ? 'Please enter your access code to start a new session.' : 'That access code did not open the lessons. Check it and try again.';
         button.disabled = false;
-        field.select();
+        if (!automatic) field.select();
       }
+    }
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      openLessons(field.value.trim());
     });
+    try {
+      const saved = sessionStorage.getItem(sessionKey);
+      if (saved) openLessons(saved, true);
+    } catch (_) {}
   </script>
 </body>
 </html>

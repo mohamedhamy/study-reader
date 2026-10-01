@@ -86,6 +86,13 @@
         document.open();
         document.write(page);
         document.close();
+        if (location.pathname !== '/study-reader/' && location.pathname !== '/study-reader/index.html') {
+          let backgroundedAt = 0;
+          document.addEventListener('visibilitychange', () => {
+            if (document.hidden) backgroundedAt = Date.now();
+            else if (backgroundedAt && Date.now() - backgroundedAt > 180000 && navigator.onLine) location.assign('/study-reader/');
+          });
+        }
       } catch (error) {
         if (automatic && error.message !== 'download') {
           try { sessionStorage.removeItem(sessionKey); } catch (_) {}

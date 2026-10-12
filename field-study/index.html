@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="theme-color" content="#0b1010">
+  <meta name="theme-color" content="#34383c">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Study Atlas">
@@ -29,7 +29,29 @@
     button:disabled { cursor: wait; opacity: .7; }
     #status { min-height: 24px; margin: 14px 0 0; font-size: 16px; }
     .install-tip { margin: 24px 0 0; border-top: 1px solid #53635a; padding-top: 17px; font-size: 15px; line-height: 1.5; }
-    .install-tip strong { color: #e2c590; }
+    .install-tip strong { color: #d0eaf9; }
+    /* Frosted controls, with an opaque fallback for reduced transparency. */
+    :root { color: #f5f8fa; background: #09111a; }
+    body { background: radial-gradient(ellipse at 80% 10%, #629cc36b, transparent 45%), radial-gradient(ellipse at 10% 90%, #75629c4a, transparent 48%), #09111a; }
+    main { border: 1px solid #d6f0fc6b; border-radius: 28px; background: linear-gradient(140deg, #294150d9, #14232fea 72%); box-shadow: 0 1px 0 #ffffff66 inset, 0 28px 90px #0009; -webkit-backdrop-filter: blur(28px) saturate(145%); backdrop-filter: blur(28px) saturate(145%); }
+    .mark { border: 1px solid #dcf4ff87; border-radius: 15px; background: #c2e8fb1c; color: #d8f0fc; box-shadow: 0 1px 0 #ffffff55 inset; }
+    .overline { color: #d2ecfa; }
+    h1 { color: #f5f8fa; }
+    p { color: #d9e6ed; }
+    input { border: 1px solid #c4e1f488; border-radius: 14px; background: #0d1b29d9; color: #f5f8fa; }
+    button { border-radius: 15px; background: #d1eafa; color: #0c1a28; box-shadow: 0 1px 0 #ffffffbb inset; }
+    button:hover, button:focus-visible { background: #f0f9ff; }
+    .install-tip { border-top-color: #c4e1f466; }
+    @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) { main { background: #1b2c39; -webkit-backdrop-filter: none; backdrop-filter: none; border-color: #d6f0fc; } }
+    :root { background: #34383c; }
+    body { background: radial-gradient(ellipse at 80% 8%, #c4ccd095, transparent 48%), radial-gradient(ellipse at 0% 96%, #8f8c9b6b, transparent 48%), #34383c; }
+    main { background: linear-gradient(140deg, #737b7cdd, #50585bee 72%); border-color: #f4f6efa8; }
+    .mark { background: #f1f2ed30; border-color: #f8f8f3ad; color: #f8f8f3; }
+    .overline { color: #f2f3ec; }
+    input { background: #444b4ee0; border-color: #f1f3ed9b; }
+    button { background: #e9ece7; color: #303538; }
+    button:hover, button:focus-visible { background: #fcfdf8; }
+    @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) { main { background: #585f62; } }
   </style>
 </head>
 <body>

@@ -1,13 +1,13 @@
 {
   "id": "/study-reader/",
-  "name": "Architectural Studies Reader",
-  "short_name": "Study Reader",
+  "name": "Study Atlas",
+  "short_name": "Study Atlas",
   "description": "Private dashboard for five architectural courses, lessons, homework, notices and lecture notes.",
   "start_url": "/study-reader/",
   "scope": "/study-reader/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#0b1010",
+  "theme_color": "#0b1010",
   "icons": [
     { "src": "/study-reader/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
     { "src": "/study-reader/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }

@@ -4,36 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0b1010">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Study Reader">
+  <meta name="apple-mobile-web-app-title" content="Study Atlas">
   <link rel="manifest" href="/study-reader/app.webmanifest">
   <link rel="apple-touch-icon" sizes="180x180" href="/study-reader/icons/apple-touch-icon.png">
-  <title>Study Reader</title>
+  <title>Study Atlas</title>
   <style>
-    :root { color-scheme: dark; font-family: system-ui, -apple-system, Segoe UI, sans-serif; color: #f6fafc; background: #000; }
+    :root { color-scheme: dark; font-family: Aptos, Segoe UI, Arial, sans-serif; color: #f5f2ea; background: #0b1010; }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left)); }
-    main { width: min(100%, 440px); padding: clamp(26px, 6vw, 42px); border: 1px solid #60727e; border-radius: 18px; background: #101820; }
-    .mark { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: #18343a; color: #84e7dd; font-size: 26px; }
-    h1 { margin: 24px 0 10px; font-size: clamp(26px, 6vw, 32px); line-height: 1.15; }
-    p { font-size: 18px; line-height: 1.65; color: #d1dde4; }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left)); background-image: linear-gradient(#a1b0a10a 1px, transparent 1px), linear-gradient(90deg, #a1b0a10a 1px, transparent 1px); background-size: 32px 32px; }
+    main { width: min(100%, 460px); padding: clamp(26px, 6vw, 44px); border: 1px solid #53635a; border-radius: 4px; background: #15201d; box-shadow: 0 22px 80px #0009; }
+    .mark { display: inline-grid; place-items: center; width: 50px; height: 50px; border: 1px solid #a9926d; border-radius: 4px; background: #1b2824; color: #e2c590; }
+    .mark svg { width: 34px; height: 34px; }
+    .overline { margin: 22px 0 8px; color: #e2c590; font: 700 12px Consolas, monospace; letter-spacing: .12em; }
+    h1 { margin: 0 0 10px; font: 700 clamp(30px, 6vw, 39px)/1.13 Georgia, serif; }
+    p { font-size: 18px; line-height: 1.65; color: #c6d0c8; }
     label { display: block; margin: 26px 0 8px; font-weight: 700; font-size: 17px; }
-    input { width: 100%; padding: 14px 15px; border: 1px solid #a0b7c3; border-radius: 9px; background: #050809; color: #f6fafc; font: inherit; font-size: 19px; }
-    input:focus { outline: 3px solid #ffcc70; outline-offset: 2px; }
-    button { width: 100%; margin-top: 14px; padding: 14px 16px; border: 0; border-radius: 9px; background: #84e7dd; color: #001517; font: inherit; font-size: 18px; font-weight: 750; cursor: pointer; }
-    button:hover, button:focus-visible { background: #b6fff5; }
+    input { width: 100%; padding: 14px 15px; border: 1px solid #7d8c80; border-radius: 4px; background: #0b1010; color: #f5f2ea; font: inherit; font-size: 19px; }
+    input:focus { outline: 3px solid #f3a667; outline-offset: 2px; }
+    button { width: 100%; margin-top: 14px; padding: 14px 16px; border: 0; border-radius: 4px; background: #e2c590; color: #0b1010; font: inherit; font-size: 18px; font-weight: 750; cursor: pointer; }
+    button:hover, button:focus-visible { background: #f6dda9; }
     button:disabled { cursor: wait; opacity: .7; }
     #status { min-height: 24px; margin: 14px 0 0; font-size: 16px; }
-    .install-tip { margin: 24px 0 0; border-top: 1px solid #60727e; padding-top: 17px; font-size: 15px; line-height: 1.5; }
-    .install-tip strong { color: #84e7dd; }
+    .install-tip { margin: 24px 0 0; border-top: 1px solid #53635a; padding-top: 17px; font-size: 15px; line-height: 1.5; }
+    .install-tip strong { color: #e2c590; }
   </style>
 </head>
 <body>
   <main>
-    <div class="mark" aria-hidden="true">▥</div>
-    <h1>Private lesson reader</h1>
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 42 42" fill="none"><path d="M9 34V20a12 12 0 0 1 24 0v14M4 34h34M9 23h24M21 8v26" stroke="currentColor" stroke-width="2"/></svg></div>
+    <p class="overline">STUDY ATLAS / PRIVATE DESK</p>
+    <h1>Open your lessons.</h1>
     <p>Enter your access code once. Subject pages will stay open during this app session.</p>
     <form id="unlock-form">
       <label for="code">Access code</label>

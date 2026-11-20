@@ -1,4 +1,4 @@
-const CACHE_NAME = 'study-reader-encrypted-v7';
+const CACHE_NAME = 'study-reader-encrypted-v8';
 const CACHE_PREFIX = 'study-reader-encrypted-';
 const SCOPE = '/study-reader/';
 const SHELL = [

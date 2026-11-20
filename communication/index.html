@@ -107,6 +107,10 @@
           if (!lesson.pdf) throw new Error('asset');
           page = page.replaceAll('structural-studies-guide.pdf', URL.createObjectURL(new Blob([decode(lesson.pdf)], { type: 'application/pdf' })));
         }
+        for (const [filename, file] of Object.entries(lesson.files || {})) {
+          if (!filename.endsWith('.pdf') || file.mime !== 'application/pdf') throw new Error('asset');
+          page = page.replaceAll(filename, URL.createObjectURL(new Blob([decode(file.base64)], { type: file.mime })));
+        }
         try { sessionStorage.setItem(sessionKey, accessCode); } catch (_) { /* Storage can be unavailable in private browsing. */ }
         document.open();
         document.write(page);

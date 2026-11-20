@@ -1,4 +1,4 @@
-const CACHE_NAME = 'study-reader-encrypted-v6';
+const CACHE_NAME = 'study-reader-encrypted-v7';
 const CACHE_PREFIX = 'study-reader-encrypted-';
 const SCOPE = '/study-reader/';
 const SHELL = [
@@ -25,7 +25,8 @@ const SHELL = [
   `${SCOPE}app.webmanifest`,
   `${SCOPE}icons/icon-192.png`,
   `${SCOPE}icons/icon-512.png`,
-  `${SCOPE}icons/apple-touch-icon.png`
+  `${SCOPE}icons/apple-touch-icon.png`,
+  `${SCOPE}icons/polytechnic-logo.png`
 ];
 
 self.addEventListener('install', event => {

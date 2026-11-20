@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="theme-color" content="#34383c">
+  <meta name="theme-color" content="#303437">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Study Atlas">
+  <meta name="apple-mobile-web-app-title" content="Architecture Study">
   <link rel="manifest" href="/study-reader/app.webmanifest">
   <link rel="apple-touch-icon" sizes="180x180" href="/study-reader/icons/apple-touch-icon.png">
-  <title>Study Atlas</title>
+  <title>Architecture at Polytechnic My Personal Study Guide</title>
   <style>
     :root { color-scheme: dark; font-family: Aptos, Segoe UI, Arial, sans-serif; color: #f5f2ea; background: #0b1010; }
     * { box-sizing: border-box; }
@@ -52,13 +52,31 @@
     button { background: #e9ece7; color: #303538; }
     button:hover, button:focus-visible { background: #fcfdf8; }
     @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) { main { background: #585f62; } }
+    :root { font-family:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif; background:#2c3033; color:#f5f5f2; }
+    body { background:radial-gradient(ellipse at 75% 0,#646c6f55,transparent 55%),linear-gradient(155deg,#3d4346,#282d30 70%,#222629); }
+    main { background:linear-gradient(145deg,#5b6366e8,#3c4448ef 70%);border-color:#f0f2ed94;border-radius:22px;box-shadow:inset 0 1px 0 #ffffff70,0 25px 65px #0d1011aa; }
+    .mark { display:grid;place-items:center;width:100px;height:100px;margin:auto;border:0;background:transparent;perspective:560px;box-shadow:none; }
+    .poly-logo { width:94px;height:94px;display:block;position:relative;transform-style:preserve-3d;animation:poly-turn 4s infinite; }
+    .poly-logo::before,.poly-logo::after { content:"";position:absolute;inset:0;-webkit-mask:url('/study-reader/icons/polytechnic-logo.png') center/contain no-repeat;mask:url('/study-reader/icons/polytechnic-logo.png') center/contain no-repeat; }
+    .poly-logo::before { background:linear-gradient(120deg,#15191b,#656d72 31%,#252b2e 68%,#080b0d);transform:translate3d(4px,4px,-8px); }
+    .poly-logo::after { background:linear-gradient(120deg,#f7f9f7,#aeb8bd 14%,#30383c 24%,#f5f7f4 40%,#849095 54%,#1b2226 65%,#e6eae7 80%,#687278);transform:translateZ(2px);filter:drop-shadow(3px 5px 5px #1317199c); }
+    @keyframes poly-turn { 0%{transform:rotateY(0deg);animation-timing-function:cubic-bezier(.55,.05,.2,1)} 37.5%,100%{transform:rotateY(360deg)} }
+    .overline { margin:8px 0 6px;text-align:center;font:.7rem Consolas,monospace;letter-spacing:.12em;color:#f3f4ef; }
+    h1 { font-family:"Segoe UI Variable Display","Segoe UI",sans-serif;font-size:clamp(1.7rem,5vw,2.4rem);font-weight:680;letter-spacing:-.03em;line-height:1.16;text-align:center;background:linear-gradient(105deg,#f5f5f1,#b9c0c1 28%,#fff 48%,#a9b2b5 67%,#f3f3ef);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:office-text-sheen 7s ease-in-out infinite; }
+    h1 span { display:block;font-size:clamp(1rem,3vw,1.3rem);font-weight:520;letter-spacing:.02em;margin-top:.25rem; }
+    @keyframes office-text-sheen { 0%,12%{background-position:0% 50%} 55%,100%{background-position:100% 50%} }
+    p { color:#e4e7e4; }
+    input { background:#30373b;border-color:#f1f3ed9b;color:#f7f7f3; }
+    button { background:radial-gradient(ellipse at 50% 0,#ffffff36,transparent 70%),linear-gradient(#7c8486,#555d60 45%,#41494c 50%,#5b6366);border:1px solid #f0f2ec9c;color:#fff;box-shadow:inset 0 1px 0 #ffffff85; }
+    button:hover,button:focus-visible { background:#7c8588; }
+    @media(prefers-reduced-motion:reduce){.poly-logo,h1{animation:none}}
   </style>
 </head>
 <body>
   <main>
-    <div class="mark" aria-hidden="true"><svg viewBox="0 0 42 42" fill="none"><path d="M9 34V20a12 12 0 0 1 24 0v14M4 34h34M9 23h24M21 8v26" stroke="currentColor" stroke-width="2"/></svg></div>
-    <p class="overline">STUDY ATLAS / PRIVATE DESK</p>
-    <h1>Open your lessons.</h1>
+    <div class="mark" role="img" aria-label="Maldives Polytechnic emblem"><span class="poly-logo" aria-hidden="true"></span></div>
+    <p class="overline">PRIVATE COURSE DESK / FIVE SUBJECTS</p>
+    <h1>Architecture at Polytechnic <span>My Personal Study Guide</span></h1>
     <p>Enter your access code once. Subject pages will stay open during this app session.</p>
     <form id="unlock-form">
       <label for="code">Access code</label>
